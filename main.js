@@ -2,7 +2,21 @@
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
-// Your JavaScript code goes here!
+function callback(e) {
+  let heart = e.target
+  mimicServerCall()
+  .then(message => {
+    heart.innerText = glyph[heart.innerText]
+    heart.style.color = clr[heart.style.color]
+  })
+
+  .catch(message => {
+    errorModal.hidden = false
+    setTimeout(function() {
+      errorModal.hidden = true}, 5000)
+
+  })
+}
 
 
 
